@@ -7,12 +7,17 @@ print("   | |  | | (__    | |/ _ \ (__    | || (_) | _| ")
 print("   |_| |___\___|   |_/_/ \_\___|   |_| \___/|___|\n")
 
 print("Welcome to Tic Tac Toe!")
-server_socket = socket(AF_INET, SOCK_STREAM)
-server_socket.bind(('', 0)) # Bind socket to random available port
-server_socket.listen(1) # List
-server_port_num = server_socket.getsockname()[1]
-print("The server is listening on port " + str(server_port_num) + "...")
+client1_socket = socket(AF_INET, SOCK_STREAM)
+client2_socket = socket(AF_INET, SOCK_STREAM)
+client1_socket.bind(('', 0)) # Bind socket to random available port
+client2_socket.bind(('', 0))
+client1_socket.listen(1) # Listen to 1 connection at a time...
+client2_socket.listen(1)
+client1_port_num = client1_socket.getsockname()[1]
+client2_port_num = client2_socket.getsockname()[1]
+print("The server is listening on port " + str(client1_port_num) + " and port " + str(client2_port_num) + "...")
 
+while True:
 
 
 
